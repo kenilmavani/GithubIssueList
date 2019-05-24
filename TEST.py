@@ -36,14 +36,14 @@ while True:
 		for i in parsed["items"]:		
 			dt = parser.parse(i["created_at"]).replace(tzinfo=None)		#we get formal date from ISO date format	
 			if dt > d3 :												#comparing two dates one is from API another one is our
-				cnt_24+=1												#incresing a count if issue were opened in the last 24 hours
+				cnt_24+=1	 #incresing a count if issue were opened in the last 24 hours												
 			elif dt > d2 :  											
-				cnt_7+=1												#incresing a count if issue were opened more than 24 hours ago but less than 7 days ago
+				cnt_7+=1  	#incresing a count if issue were opened more than 24 hours ago but less than 7 days ago
 			else:														
-				b=1														#here we get first issus which opened after 7 days ago so b = 1
-				break													#we break that for loop
+				b=1			#here we get first issus which opened after 7 days ago so b = 1
+				break		#we break that for loop
 		if(b==1):
-			break														#and also breaking our while loop too 
+			break			#and also breaking our while loop too 
 
 #total isuuses
 print(" Total issues:- ",total_issues)	
