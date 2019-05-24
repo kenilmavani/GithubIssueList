@@ -53,6 +53,6 @@ print(" Number of  open issues that were opened in the last 24 hours:-          
 #count of open issues that were opened more than 24 hours ago but less than 7 days ago
 print(" Number of  open issues that were  opened more than 24 hours ago but less than 7 days ago:- ",cnt_7)
 #if we subtracting cnt_24 and cnt_7 from total we will get ans of last problem (issues were opened more than 7 days ago)
-print(" Number of open issues that were opened more than 7 days ago                                ",total_issues-cnt_24-cnt_7)
+print(" Number of open issues that were opened more than 7 days ago:-                              ",total_issues-cnt_24-cnt_7)
 
 
