@@ -15,6 +15,6 @@ https://github.com/transloadit/uppy
  Number of  open issues that were opened in the last 24 hours:-                              0
  Number of  open issues that were  opened more than 24 hours ago but less than 7 days ago:-  10
  Number of open issues that were opened more than 7 days ago:-                               105
-Press any key to continue . . .
+Press any key to continue . . 
 
 
