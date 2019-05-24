@@ -5,7 +5,7 @@ from dateutil import parser 		#using parser we can change ISO format into local 
 
 d2 = datetime.datetime.today() - datetime.timedelta(days=6)      # this date and time is 7 days ago date&time form current
 d3 = datetime.datetime.today() - datetime.timedelta(days=1)		 # this date and time is 24 ago from current
- 
+
 page=1				#this is page variable for next page of issuses 
 total_issues=0 		#Count of total issues in that project repository
 cnt_24=0			#count of open issues that were opened in the last 24 hours
@@ -27,7 +27,7 @@ while True:
 	response = requests.get(url)		#getting responce from url
 	data = response.text				#data came from responce
 	parsed = json.loads(data)			#convert into lists,dictionaries
-	total=parsed["total_count"]			#getting Total issues from that dictionary
+	total_issues=parsed["total_count"]			#getting Total issues from that dictionary
 	if(len(parsed["items"])==0):		#if page is empty our while loop will break
 		break
 	else :													
@@ -36,9 +36,9 @@ while True:
 		for i in parsed["items"]:		
 			dt = parser.parse(i["created_at"]).replace(tzinfo=None)		#we get formal date from ISO date format	
 			if dt > d3 :												#comparing two dates one is from API another one is our
-				cnt1+=1													#incresing a count if issue were opened in the last 24 hours
+				cnt_24+=1													#incresing a count if issue were opened in the last 24 hours
 			elif dt > d2 :  											
-				cnt2+=1													#incresing a count if issue were opened more than 24 hours ago but less than 7 days ago
+				cnt_7+=1													#incresing a count if issue were opened more than 24 hours ago but less than 7 days ago
 			else:														
 				b=1														#here we get first issus which opened after 7 days ago so b = 1
 				break													#we break that for loop
@@ -48,10 +48,10 @@ while True:
 #total isuuses
 print(" Total issues:- ",total_issues)	
 #count of open issues that were opened in the last 24 hours
-print(" Number of  open issues that were opened in the last 24 hours:- ",cnt_24) 
+print(" Number of  open issues that were opened in the last 24 hours:-                             ",cnt_24) 
 #count of open issues that were opened more than 24 hours ago but less than 7 days ago
-print(" Number of  open issues that were  opened more than 24 hours ago but less than 7 days ago:-",cnt_7)
+print(" Number of  open issues that were  opened more than 24 hours ago but less than 7 days ago:- ",cnt_7)
 #if we subtracting cnt_24 and cnt_7 from total we will get ans of last problem (issues were opened more than 7 days ago)
-print(" Number of open issues that were opened more than 7 days ago ",total_issues-cnt_24-cnt_7)
+print(" Number of open issues that were opened more than 7 days ago                                ",total_issues-cnt_24-cnt_7)
 
 
